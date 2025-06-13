@@ -262,7 +262,7 @@ app.get("/getUser/:id", async (req, res) => {
       // If a new file is uploaded, use it; otherwise, keep the existing file (fetch it from the database)
       let file;
       if (req.file) {
-       const file = `https://parkmate-back-3.onrender.com/uploads/${req.file.filename}`;
+       const file = `https://parkmate-back-3.onrender.com/uploadsParking/${req.file.filename}`;
  // If new file is uploaded, use the new file
       } else {
         // Fetch the current file path from the database before update
