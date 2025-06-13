@@ -93,7 +93,8 @@ app.post('/api/data', upload.single('file'), async (req, res) => {
     const { username, email, password,userRole,uniqcode } = req.body;
 
     // Check if file is uploaded
-    const file = req.file ? `http://localhost:${PORT}/uploads/${req.file.filename}` : null;
+   const file = req.file ? `https://parkmate-back-3.onrender.com/uploads/${req.file.filename}` : null;
+
 
     const newData = new DataModel({
         username,
@@ -188,7 +189,8 @@ app.post('/api/data1', upload2.single('file'), async (req, res) => {
     const { ParkingName, ParkingArea, Slots,ParkingAddress,ParkingCode,ParkingSpaceCode } = req.body;
 
     // Check if file is uploaded
-    const file = req.file ? `http://localhost:${PORT}/uploadsParking/${req.file.filename}` : null;
+   const file = req.file ? `https://parkmate-back-3.onrender.com/uploadsParking/${req.file.filename}` : null;
+
 
     const newData = new ParkModel({
         ParkingName, 
@@ -260,7 +262,8 @@ app.get("/getUser/:id", async (req, res) => {
       // If a new file is uploaded, use it; otherwise, keep the existing file (fetch it from the database)
       let file;
       if (req.file) {
-        file = `http://localhost:${PORT}/uploads/${req.file.filename}`; // If new file is uploaded, use the new file
+       const file = `https://parkmate-back-3.onrender.com/uploads/${req.file.filename}`;
+ // If new file is uploaded, use the new file
       } else {
         // Fetch the current file path from the database before update
         const currentParking = await ParkModel.findById(req.params.id);
